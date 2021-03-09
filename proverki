@@ -1,0 +1,5 @@
+
+norminette -R CheckForbiddenSourceHeader */*
+
+
+gcc -Wall -Wextra -Werror && ./a.out

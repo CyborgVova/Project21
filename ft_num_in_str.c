@@ -6,13 +6,13 @@
 /*   By: gcyndi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:36:31 by gcyndi            #+#    #+#             */
-/*   Updated: 2021/03/08 19:45:37 by gcyndi           ###   ########.fr       */
+/*   Updated: 2021/03/09 16:02:09 by gcyndi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_rev(int nb)
+char	*ft_num_in_str(int nb)
 {
 	char	*inp;
 	char	*out;
@@ -23,17 +23,21 @@ char	*ft_rev(int nb)
 	out = malloc(12);
 	i = 0;
 	j = 0;
+	if (nb == -2147483648)
+	{
+		out[j++] = '-';
+		out[j++] = 2 + '0';
+		nb = 147483648;
+	}
 	if (nb < 0)
 	{
 		nb *= -1;
-		out[0] = '-';
-		j++;
+		out[j++] = '-';
 	}
 	while (nb > 9)
 	{
-		inp[i] = nb % 10 + '0';
+		inp[i++] = nb % 10 + '0';
 		nb /= 10;
-		i++;
 	}
 	inp[i] = nb + '0';
 	while (i >= 0)
